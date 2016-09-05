@@ -1,5 +1,41 @@
-<div class="jumbotron text-center">
-	<h1>TEST PAGE</h1>
+<div class="container-fluid text-center">
+	<div class="row">
+<div class="col-lg-offset-3 col-lg-6">
+<label><h3>Month:
+<input type="month" class="form-control" datepicker-popup="MM/yyyy" ng-model="dt" is-open="opened" datepicker-options="{minMode: 'month'}" datepicker-mode="'month'" style="width:300px"></h3>
+</label>
+</div>
+<div class="row">
+<div class="col-lg-offset-2 col-lg-8">
+<form name="expenses">
+<label>Item:
+<input type="text" name="item" ng-model="budget.item">
+</label>
+<label>Cost:
+<input type="text" name="cost" ng-model="budget.cost">
+</label>
+<button class="btn btn-success" >CREATE</button>
+<table class="table">
+	<thead>
+		<tr>
+<th>ITEMS</th>
+<th>COST</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Food</td>
+<td>4000</td>
+</tr>
+<tr>
+<td>Clothing</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</div>
+	</div>
 
-	<p>{{ tagline }}</p>
 </div>

@@ -1,1 +1,28 @@
-body { padding-top:30px; }
+body {
+  padding-top:30px;
+overflow-x:hidden;
+color: white;
+}
+.index{
+  width: 1150px;
+  height: 550px;
+}
+.index-cont {
+  margin-top:100px;
+  margin-left: 60px;
+  margin-right: 60px;
+  color: white;
+  text-align: center;
+  opacity: 1;
+}
+
+.index-btn {
+  margin-top:100px;
+  margin-left: 60px;
+  margin-right: 60px;
+  color: blue;
+  text-align: center;
+}
+.navbar {
+  background: none;
+}
