@@ -8,13 +8,15 @@
 <div class="row">
 <div class="col-lg-offset-2 col-lg-8">
 <form name="expenses">
+	<div class="form-group">
 <label>Item:
-<input type="text" name="item" ng-model="budget.item">
+<input type="text" class="form-control" name="item" ng-model="formData.item">
 </label>
 <label>Cost:
-<input type="text" name="cost" ng-model="budget.cost">
+<input type="text" class="form-control" name="cost" ng-model="formData.cost">
 </label>
-<button class="btn btn-success" >CREATE</button>
+</div>
+<button type="submit" class="btn btn-success" ng-click="createTodo()">CREATE</button>
 <table class="table">
 	<thead>
 		<tr>
@@ -24,8 +26,8 @@
 </thead>
 <tbody>
 <tr>
-<td>Food</td>
-<td>4000</td>
+<td>{{item}}</td>
+<td>{{cost}}</td>
 </tr>
 <tr>
 <td>Clothing</td>

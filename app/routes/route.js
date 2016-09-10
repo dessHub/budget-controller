@@ -1,14 +1,32 @@
-//Grap User model
-var User = require('./models/user');
+//Grap Budget model
+var Budget = require('./models/user');
 module.exports = function(app){
 
 //Server routes ========
-app.get('users', function(req,res){
-  User.find(function(err, users){
+app.get('/budgets', function(req,res){
+  User.find(function(err, budgets){
      if (err)
         res.send(err);
-     res.json(users);
+     res.json(budgets);
   });
+ });
+
+ app.post('/add', function(req, res){
+   Budget.create({
+     item : req.body.item,
+     cost : req.body.cost
+   }), function(err, budget){
+     if (err)
+        res.send(err);
+
+       console.log(budget);
+        Budget.find(function(err, budgets){
+          if (err)
+              res.send(err);
+
+               res.json(budgets);
+        })
+   }
  });
 
 
