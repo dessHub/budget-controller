@@ -1,17 +1,27 @@
 //Grap Budget model
 var Budget = require('./models/user');
+
+function getBudgets(res){
+      Budget.find(function(err, budgets){
+       if (err){
+          res.send(err);
+        }
+       res.json(budgets);
+    });
+
+}
 module.exports = function(app){
 
 //Server routes ========
-app.get('/budgets', function(req,res){
-  User.find(function(err, budgets){
-     if (err)
-        res.send(err);
-     res.json(budgets);
-  });
- });
+app.get('/', function(req, res){
+
+getBudgets(res);
+
+})
+
 
  app.post('/add', function(req, res){
+   console.log(req.body.item);
    Budget.create({
      item : req.body.item,
      cost : req.body.cost
@@ -24,7 +34,7 @@ app.get('/budgets', function(req,res){
           if (err)
               res.send(err);
 
-               res.json(budgets);
+               getBudgets();
         })
    }
  });

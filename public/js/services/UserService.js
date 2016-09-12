@@ -2,20 +2,20 @@ angular.module('UserService', []).factory('Budgets', ['$http', function($http) {
 
 
 return {
-          // call to get all nerds
+          // call to get all budgets
 
 get : function() {
-              return $http.get('/budgets');
+              return $http.get('/');
           },
 
 
-            // call to POST and create a new user
+            // call to POST and create a new budget
 
-create : function(userData) {
-              return $http.post('/add', userData);
+create : function(budget) {
+              return $http.post('/add', budget);
           },
 
-          // call to DELETE a user
+          // call to DELETE a budget
           delete : function(id) {
               return $http.delete('/user/' + id);
           }

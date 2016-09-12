@@ -1,43 +1,46 @@
-angular.module('UserCtrl', []).controller('UserController', function($scope, $http, Budgets) {
+angular.module('UserCtrl', []).controller('UserController', ['$scope', '$http', 'Budgets',  function($scope, $http, Budgets) {
 
-	    // inject the Todo service factory into our controller
+	    // inject the Budget service factory into our controller
 	        $scope.formData = {};
 
 	        // GET =====================================================================
-	        // when landing on the page, get all todos and show them
-	        // use the service to get all the todos
-	        Todos.get()
+	        // when landing on the page, get all budgets and show them
+	        // use the service to get all the budgets
+	        Budgets.get()
 	            .success(function(data) {
-	                $scope.budget = data;
+	                $scope.budgets = data;
 	            });
 
 	        // CREATE ==================================================================
 	        // when submitting the add form, send the text to the node API
-	        $scope.createTodo = function() {
+	        $scope.createBudget = function() {
 
 	            // validate the formData to make sure that something is there
 	            // if form is empty, nothing will happen
-	            // people can't just hold enter to keep adding the same to-do anymore
-	            if (!$.isEmptyObject($scope.formData)) {
-
+	            if ($scope.formData.item != undefined) {
+         console.log($scope.formData);
 	                // call the create function from our service (returns a promise object)
-	                Budgets.create($scope.formData)
+	                Budgets.create('/add', $scope.formData)
 
-	                    // if successful creation, call our get function to get all the new todos
+	                    // if successful creation, call our get function to get all the new budgets
 	                    .success(function(data) {
+												console.log(data);
 	                        $scope.formData = {}; // clear the form so our user is ready to enter another
-	                        $scope.budgets = data; // assign our new list of todos
-	                    });
+	                        $scope.budget = data; // assign our new list of budgets
+	                    })
+											.error(function(data) {
+												    console.log("err :" + data);
+											});
 	            }
 	        };
 
 	        // DELETE ==================================================================
-	        // delete a todo after checking it
-	        $scope.deleteTodo = function(id) {
+	        // delete a budget after checking it
+	        $scope.deleteBudget = function(id) {
 	            Todos.delete(id)
-	                // if successful creation, call our get function to get all the new todos
+	                // if successful creation, call our get function to get all the new budgets
 	                .success(function(data) {
-	                    $scope.todos = data; // assign our new list of todos
+	                    $scope.budgets = data; // assign our new list of budgets
 	                });
 	        };
-	    });
+	    }]);
