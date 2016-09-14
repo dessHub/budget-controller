@@ -1,14 +1,15 @@
 //Modules
-var express = require("express");
-var app = express();
-var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
+var express        =  require("express");
+var app            =  express();
+var bodyParser     =  require('body-parser');
+var methodOverride =  require('method-override');
+var appRoutes      =  require('./app/routes/routes');
 
 //Configurations ================
 
 //config files
-var db = require('./config/db');
-var mongoose = require('mongoose');
+var db       =  require('./config/db');
+var mongoose =  require('mongoose');
 
 //setting server port
 var port = process.env.PORT || 4000;
@@ -33,7 +34,8 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public'));
 
 // routes ==================================================
-require('./app/app/route')(app); // configure our routes
+/* require('./app/app/route')(app); // configure our routes */
+app.use(appRoutes);
 
 // start app ===============================================
 // startup our app at http://localhost:4000;
