@@ -3,7 +3,7 @@ var express        =  require("express");
 var app            =  express();
 var bodyParser     =  require('body-parser');
 var methodOverride =  require('method-override');
-var appRoutes      =  require('./app/routes/routes');
+var mainRoute      =  require('./app/routes/routes');
 
 //Configurations ================
 
@@ -35,7 +35,7 @@ app.use(express.static(__dirname + '/public'));
 
 // routes ==================================================
 /* require('./app/app/route')(app); // configure our routes */
-app.use(appRoutes);
+app.use(mainRoute);
 
 // start app ===============================================
 // startup our app at http://localhost:4000;

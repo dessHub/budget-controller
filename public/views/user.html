@@ -1,49 +1,45 @@
 <div class="container-fluid text-center" ng-controller="UserController">
-	<div class="row">
-<div class="col-lg-offset-3 col-lg-6">
-<label><h3>Month:
-<input type="month" class="form-control" datepicker-popup="MM/yyyy" ng-model="dt" is-open="opened" datepicker-options="{minMode: 'month'}" datepicker-mode="'month'" style="width:300px"></h3>
-</label>
-</div>
-<div class="row">
-<div class="col-lg-offset-2 col-lg-8">
-<form>
-	<div class="form-group">
-<label>Item:
-<input type="text" class="form-control" name="item" ng-model="formData.item">
-</label>
-<label>Cost:
-<input type="text" class="form-control" name="cost" ng-model="formData.cost">
-</label>
-</div>
-<button type="submit" class="btn btn-success" ng-click="createBudget()">CREATE</button>
-</form>
-<table class="table">
-	<thead>
-		<tr>
-<th>ITEMS</th>
-<th>COST</th>
-<th>ACTION </th>
-<th>&nbsp;</th>
-</tr>
-</thead>
-<tbody>
-<tr ng-repeat = "x in budgets">
-
-<td>{{x.item}}</td>
-<td>{{x.cost}}</td>
-<td><button class="btn btn-danger" ng-click="remove(x._id)">Remove</td>
-<td><button class="btn btn-warning" ng-click="edit(x._id)">Edit</td>
-</tr>
-
-<td>Clothing</td>
-<td>1000</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-	</div>
-
-</div>
+  <div class="row">
+    <div class="col-lg-offset-3 col-lg-6">
+      <label><h3>Month:
+          <input type="month" class="form-control" datepicker-popup="MM/yyyy" ng-model="dt" is-open="opened" datepicker-options="{minMode: 'month'}" datepicker-mode="'month'" style="width:300px"></h3>
+        </label>
+      </div>
+      <div class="row">
+        <div class="col-lg-offset-2 col-lg-8">
+          <form>
+            <div class="form-group">
+              <label>Item:
+                <input type="text" class="form-control" name="item" ng-model="formData.item">
+              </label>
+              <label>Cost:
+                <input type="text" class="form-control" name="cost" ng-model="formData.cost">
+              </label>
+            </div>
+            <button type="submit" class="btn btn-success" ng-click="createBudget()">CREATE</button>
+          </form>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ITEMS </th> 
+                <th>COST</th>
+                <th>ACTION </th>
+                <th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat = "budget in budgets.data">
+                <td>{{budget.item}}</td>
+                <td>{{budget.cost}}</td>
+                <td><button class="btn btn-danger" ng-click="remove(budget._id)">Remove</td>
+                  <td><button class="btn btn-warning" ng-click="edit(budget._id)">Edit</td>
+                  </tr>
+                  <td>Clothing</td>
+                  <td>1000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
