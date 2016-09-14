@@ -9,16 +9,19 @@ get : function() {
           },
 
 
+
             // call to POST and create a new budget
 
-create : function(budget) {
-              return $http.post('/add', budget);
+create : function(data) {
+              return $http.post('/add', data);
           },
 
           // call to DELETE a budget
           delete : function(id) {
-              return $http.delete('/user/' + id);
+              return $http.delete('/budget/' + id);
+          
           }
+
       }
 
 }]);

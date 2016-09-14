@@ -23,14 +23,19 @@
 		<tr>
 <th>ITEMS</th>
 <th>COST</th>
+<th>ACTION </th>
+<th>&nbsp;</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>{{item}}</td>
-<td>{{cost}}</td>
+<tr ng-repeat = "x in budgets">
+
+<td>{{x.item}}</td>
+<td>{{x.cost}}</td>
+<td><button class="btn btn-danger" ng-click="remove(x._id)">Remove</td>
+<td><button class="btn btn-warning" ng-click="edit(x._id)">Edit</td>
 </tr>
-<tr>
+
 <td>Clothing</td>
 <td>1000</td>
 </tr>

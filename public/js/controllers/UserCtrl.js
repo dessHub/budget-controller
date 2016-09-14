@@ -1,4 +1,4 @@
-angular.module('UserCtrl', []).controller('UserController', ['$scope', '$http', 'Budgets',  function($scope, $http, Budgets) {
+    angular.module('UserCtrl', []).controller('UserController', function($scope, $http, Budgets) {
 
 	    // inject the Budget service factory into our controller
 	        $scope.formData = {};
@@ -17,10 +17,11 @@ angular.module('UserCtrl', []).controller('UserController', ['$scope', '$http', 
 
 	            // validate the formData to make sure that something is there
 	            // if form is empty, nothing will happen
-	            if ($scope.formData.item != undefined) {
+
+if ($scope.formData.item != undefined) {
          console.log($scope.formData);
 	                // call the create function from our service (returns a promise object)
-	                Budgets.create('/add', $scope.formData)
+	                Budgets.create($scope.formData)
 
 	                    // if successful creation, call our get function to get all the new budgets
 	                    .success(function(data) {
@@ -28,7 +29,8 @@ angular.module('UserCtrl', []).controller('UserController', ['$scope', '$http', 
 	                        $scope.formData = {}; // clear the form so our user is ready to enter another
 	                        $scope.budget = data; // assign our new list of budgets
 	                    })
-											.error(function(data) {
+
+.error(function(data) {
 												    console.log("err :" + data);
 											});
 	            }
@@ -37,10 +39,11 @@ angular.module('UserCtrl', []).controller('UserController', ['$scope', '$http', 
 	        // DELETE ==================================================================
 	        // delete a budget after checking it
 	        $scope.deleteBudget = function(id) {
-	            Todos.delete(id)
+	            Budgets.delete(id)
 	                // if successful creation, call our get function to get all the new budgets
 	                .success(function(data) {
 	                    $scope.budgets = data; // assign our new list of budgets
 	                });
 	        };
-	    }]);
+
+	    });
