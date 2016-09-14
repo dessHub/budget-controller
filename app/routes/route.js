@@ -2,8 +2,10 @@
 var Budget = require('./models/user');
 
 function getBudgets(res){
-      Budget.find(function(err, budgets){
-       if (err){
+
+Budget.find(function(err, budgets){
+
+if (err){
           res.send(err);
         }
        res.json(budgets);
@@ -30,18 +32,30 @@ getBudgets(res);
         res.send(err);
 
        console.log(budget);
-        Budget.find(function(err, budgets){
+
+Budget.find(function(err, budgets){
           if (err)
               res.send(err);
 
                getBudgets();
         })
-   }
- });
 
+}
+
+app.delete('/budgets/:id', function(req, res){
+    var id = req.params.id;
+    Budget.remove(id, function(err, budget){
+        if(err)
+            res.send(err)
+
+            getBudgets();
+
+});
+});
 
 //frontend routes =======
 //route to handle all angulerrequest
+
 app.get('*', function(req, res){
    res.sendFile('./public/views/index.html');
 });
