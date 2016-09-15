@@ -4,8 +4,7 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $ht
   $scope.formData =  {};
   $scope.budgets  =  {};
 
-  // GET =====================================================================
-    // when landing on the page, get all budgets and show them
+  // when landing on the page, get all budgets and show them
   // use the service to get all the budgets
   // Get all budgets 
   Budgets.get()
@@ -13,8 +12,7 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $ht
     $scope.budgets = data;
   });
 
-  // CREATE ==================================================================
-    // when submitting the add form, send the text to the node API
+  // when submitting the add form, send the text to the node API
   $scope.createBudget = function() {
 
     // validate the formData to make sure that something is there
@@ -28,24 +26,22 @@ angular.module('UserCtrl', []).controller('UserController', function($scope, $ht
       // if successful creation, call our get function to get all the new budgets
       .success(function(data) {
         console.log(data);
-        $scope.formData = {}; // clear the form so our user is ready to enter another
-        $scope.budget = data; // assign our new list of budgets
+        $scope.formData =  {}; // clear the form so our user is ready to enter another
+        $scope.budgets  =  data; // assign our new list of budgets
       })
-
       .error(function(data) {
         console.log("err :" + data);
       });
     }
   };
 
-  // DELETE ==================================================================
-    // delete a budget after checking it
+  // delete a budget after checking it
   $scope.deleteBudget = function(id) {
     Budgets.delete(id)
     // if successful creation, call our get function to get all the new budgets
     .success(function(data) {
       $scope.budgets = data; // assign our new list of budgets
+      console.log(data);
     });
   };
-
 });
