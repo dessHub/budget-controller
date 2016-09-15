@@ -31,7 +31,7 @@
               <tr ng-repeat = "budget in budgets.data">
                 <td>{{budget.item}}</td>
                 <td>{{budget.cost}}</td>
-                <td><button class="btn btn-danger" ng-click="remove(budget._id)">Remove</td>
+                <td><button class="btn btn-danger" ng-click="deleteBudget(budget._id)">Remove</td>
                   <td><button class="btn btn-warning" ng-click="edit(budget._id)">Edit</td>
                   </tr>
                   <td>Clothing</td>
