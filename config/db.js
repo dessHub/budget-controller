@@ -1,4 +1,4 @@
 // config/db.js
-    module.exports = {
-        url : 'mongodb://localhost/budget'
-    }
+module.exports = {
+  url : 'mongodb://localhost/budget'
+}

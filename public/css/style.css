@@ -1,12 +1,14 @@
 body {
   padding-top:30px;
-overflow-x:hidden;
-color: white;
+  overflow-x:hidden;
+  color: white;
 }
+
 .index{
   width: 1150px;
   height: 550px;
 }
+
 .index-cont {
   margin-top:100px;
   margin-left: 60px;
@@ -23,6 +25,7 @@ color: white;
   color: blue;
   text-align: center;
 }
+
 .navbar {
   background: none;
 }
